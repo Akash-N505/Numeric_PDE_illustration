@@ -5,23 +5,23 @@ Illustration of numeric methods used to solve one dimensional heat equation and 
 
 To solve
 
-$$
+```math
 u_t = a u_{xx}
-$$
+```
 
-$$
+```math
 0 < x < 1
-$$
+```
 
 Given
 
-$$
+```math
 u(0,t) = u(1,t) = 0,
-$$
+```
 
-$$
+```math
 u(x,0) = \sin(\pi x)
-$$
+```
 
 using forward difference in time and central difference for space.
 
@@ -70,9 +70,9 @@ For the heat equation,stability analysis shows that the FTCS scheme is stable on
 
 
 
-$$
+```math
 r=\frac{a\Delta t}{\Delta x^2} \le\frac{1}{2} 
-$$
+```
 
 the step sizes of the following animation does not follow this condition
 
@@ -83,39 +83,39 @@ the step sizes of the following animation does not follow this condition
 
 We consider the one-dimensional wave equation
 
-$$
+```math
 u_{tt}=c^2u_{xx},
-$$
+```
 
 
 
-$$
+```math
 0\le x\le L,
-$$
+```
 
 with
 
-$$
+```math
 u(0,t)=u(L,t)=0,
-$$
+```
 
 
 
-$$
+```math
 u(x,0)=\sin(\pi x),
-$$
+```
 
 and
 
-$$
+```math
 u_t(x,0)=0.
-$$
+```
 
 For these initial and boundary conditions, the analytical solution is
 
-$$
+```math
 u(x,t)=\cos(c\pi t)\sin(\pi x),
-$$
+```
 
 
 
@@ -124,17 +124,17 @@ $$
 
 The second-order central difference approximation is used in both space and time. 
 
-$$
+```math
 \frac{U_i^{\,n+1}-2U_i^{\,n}+U_i^{\,n-1}}{\Delta t^2}
 =
 c^2
 \frac{U_{i+1}^{\,n}-2U_i^{\,n}+U_{i-1}^{\,n}}
 {\Delta x^2}
-$$
+```
 
 Rearranging yields the explicit update formula
 
-$$
+```math
 U_i^{\,n+1}
 =
 2U_i^{\,n}
@@ -149,15 +149,15 @@ U_{i+1}^{\,n}
 +
 U_{i-1}^{\,n}
 \right)
-$$
+```
 
 where
 
-$$
+```math
 r
 =
 \frac{c\Delta t}{\Delta x}
-$$
+```
 
 
 
@@ -167,9 +167,9 @@ $$
 
 The explicit finite difference method for the wave equation is conditionally stable. Stability is guaranteed only if
 
-$$
+```math
 r \le 1.
-$$
+```
 
 primary code:
 ```python
@@ -208,9 +208,9 @@ Results:
 
 as previously metionedThe explicit finite difference method for the wave equation is conditionally stable. Stability is guaranteed only if
 
-$$
+```math
 r \le 1.
-$$
+```
 
 the following uses $r \ge 1$
 
@@ -221,32 +221,32 @@ the following uses $r \ge 1$
 
 We consider the one-dimensional heat equation
 
-$$
+```math
 u_t=a\,u_{xx},
-$$
+```
 
 on 
 
-$$
+```math
 0\le x\le L
-$$
+```
 
 with
-$$
+```math
 u(0,t)=u(L,t)=0
-$$
+```
 
 
 
-$$
+```math
 u(x,0)=\sin(\pi x)
-$$
+```
 
 For these initial and boundary conditions, the analytical solution is
 
-$$
+```math
 u(x,t)=e^{-a\pi^2t}\sin(\pi x)
-$$
+```
 
 which is used to validate the numerical approximation and compute the error throughout the simulation.
 
@@ -256,7 +256,7 @@ which is used to validate the numerical approximation and compute the error thro
 
 Replacing the derivatives with finite difference approximations gives
 
-$$
+```math
 \frac{U_i^{\,n+1}-U_i^{\,n}}{\Delta t}
 =
 a
@@ -268,24 +268,24 @@ U_{i+1}^{\,n+1}
 U_{i-1}^{\,n+1}
 }
 {\Delta x^2}
-$$
+```
 
 the mesh ratio
 
-$$
+```math
 r=\frac{a\Delta t}{\Delta x^2}
-$$
+```
 
 the finite difference scheme can be written as
 
-$$
+```math
 -rU_{i-1}^{\,n+1}
 +
 (1+2r)U_i^{\,n+1}
 -rU_{i+1}^{\,n+1}
 =
 U_i^{\,n}
-$$
+```
 
 Since the unknown values at the new time level appear on both sides of the stencil, the numerical solution cannot be updated point-by-point. Instead, the values at each time step are obtained simultaneously by solving a system of linear equations.
 
@@ -295,13 +295,13 @@ Since the unknown values at the new time level appear on both sides of the stenc
 
 For all interior grid points, the finite difference equations can be written compactly as
 
-$$
+```math
 A\,U^{\,n+1}=U^{\,n}
-$$
+```
 
 where
 
-$$
+```math
 A=
 \begin{bmatrix}
 1+2r & -r & 0 & \cdots & 0\\
@@ -310,7 +310,7 @@ A=
 \vdots & \ddots & \ddots & \ddots & -r\\
 0 & \cdots & 0 & -r & 1+2r
 \end{bmatrix}
-$$
+```
 
 At every time step, this tridiagonal matrix is solved to obtain the temperature distribution at the next time level.
 
@@ -319,9 +319,9 @@ At every time step, this tridiagonal matrix is solved to obtain the temperature 
 ## Stability
 
 An advantage of the Backward Euler method is that it is unconditionally stable. Unlike the explicit FTCS scheme
-$$
+```math
 r=\frac{a\Delta t}{\Delta x^2}
-$$
+```
 
 Although choosing a very large time step may reduce the accuracy of the numerical solution, the method remains stable and does not exhibit the numerical blow-up observed in explicit schemes. 
 
