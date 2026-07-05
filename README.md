@@ -369,3 +369,6 @@ The following block uses a very big value for r. We can observe that the solutio
 
 ![inaccurate](results/Diffusion_Implicit_inaccurate.gif)
 
+
+For derviation of condtions refer [Project Report](Numeric_methods_for_PDEs.pdf)
+
