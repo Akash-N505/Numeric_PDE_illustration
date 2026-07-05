@@ -57,3 +57,8 @@ for n in range(Nt):
 
     u[:] = u_new # updating new soltuion
 ```
+The following are the results and evolution of error overtime
+
+![Heat Equation(solved using FTCS)](results/Diffusion_FTCS.gif)
+
+
