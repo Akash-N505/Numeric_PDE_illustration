@@ -3,15 +3,24 @@ Illustration of numeric methods used to solve one dimensional heat equation and 
 
 ## Diffusion equation
 
-To slove
+To solve
 
-$$ u_t=a u_{xx} $$
- $$ 0<x<1 $$
+$$
+u_t = a u_{xx}
+$$
 
-Given 
+$$
+0 < x < 1
+$$
 
-$$ u(0,t) = u(1,t) = 0 $$                  ,  
+Given
 
-$$ u(x,0) = sin(\pi x) $$
+$$
+u(0,t) = u(1,t) = 0,
+$$
 
-using forward difference in time and central difference for space
+$$
+u(x,0) = \sin(\pi x)
+$$
+
+using forward difference in time and central difference for space.
