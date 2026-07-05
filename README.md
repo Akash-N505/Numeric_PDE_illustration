@@ -60,5 +60,6 @@ for n in range(Nt):
 The following are the results and evolution of error overtime
 
 ![Heat Equation(solved using FTCS)](results/Diffusion_FTCS.gif)
+![](results/Diffusion_error.png)
 
 
