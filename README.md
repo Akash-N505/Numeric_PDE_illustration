@@ -129,7 +129,7 @@ $$
 =
 c^2
 \frac{U_{i+1}^{\,n}-2U_i^{\,n}+U_{i-1}^{\,n}}
-{\Delta x^2}.
+{\Delta x^2}
 $$
 
 Rearranging yields the explicit update formula
@@ -148,7 +148,7 @@ U_{i+1}^{\,n}
 2U_i^{\,n}
 +
 U_{i-1}^{\,n}
-\right),
+\right)
 $$
 
 where
@@ -228,24 +228,24 @@ $$
 on 
 
 $$
-0\le x\le L,
+0\le x\le L
 $$
 
 with
 $$
-u(0,t)=u(L,t)=0,
+u(0,t)=u(L,t)=0
 $$
 
 
 
 $$
-u(x,0)=\sin(\pi x).
+u(x,0)=\sin(\pi x)
 $$
 
 For these initial and boundary conditions, the analytical solution is
 
 $$
-u(x,t)=e^{-a\pi^2t}\sin(\pi x),
+u(x,t)=e^{-a\pi^2t}\sin(\pi x)
 $$
 
 which is used to validate the numerical approximation and compute the error throughout the simulation.
@@ -267,13 +267,13 @@ U_{i+1}^{\,n+1}
 +
 U_{i-1}^{\,n+1}
 }
-{\Delta x^2}.
+{\Delta x^2}
 $$
 
 the mesh ratio
 
 $$
-r=\frac{a\Delta t}{\Delta x^2},
+r=\frac{a\Delta t}{\Delta x^2}
 $$
 
 the finite difference scheme can be written as
@@ -284,7 +284,7 @@ $$
 (1+2r)U_i^{\,n+1}
 -rU_{i+1}^{\,n+1}
 =
-U_i^{\,n}.
+U_i^{\,n}
 $$
 
 Since the unknown values at the new time level appear on both sides of the stencil, the numerical solution cannot be updated point-by-point. Instead, the values at each time step are obtained simultaneously by solving a system of linear equations.
@@ -296,7 +296,7 @@ Since the unknown values at the new time level appear on both sides of the stenc
 For all interior grid points, the finite difference equations can be written compactly as
 
 $$
-A\,U^{\,n+1}=U^{\,n},
+A\,U^{\,n+1}=U^{\,n}
 $$
 
 where
@@ -309,7 +309,7 @@ A=
 0 & -r & 1+2r & \ddots & 0\\
 \vdots & \ddots & \ddots & \ddots & -r\\
 0 & \cdots & 0 & -r & 1+2r
-\end{bmatrix}.
+\end{bmatrix}
 $$
 
 At every time step, this tridiagonal matrix is solved to obtain the temperature distribution at the next time level.
@@ -320,7 +320,7 @@ At every time step, this tridiagonal matrix is solved to obtain the temperature 
 
 An advantage of the Backward Euler method is that it is unconditionally stable. Unlike the explicit FTCS scheme
 $$
-r=\frac{a\Delta t}{\Delta x^2}.
+r=\frac{a\Delta t}{\Delta x^2}
 $$
 
 Although choosing a very large time step may reduce the accuracy of the numerical solution, the method remains stable and does not exhibit the numerical blow-up observed in explicit schemes. 
